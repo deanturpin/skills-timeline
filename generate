@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Render skill timeline
+gnuplot timeline.gp
+rm -f timeline_rotated.png
+ffmpeg -i timeline.png -vf 'rotate=90*PI/180:ow=ih:oh=iw:c=none' timeline_rotated.png 
