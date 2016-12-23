@@ -2,42 +2,81 @@
 
 "use strict"
 
-const now = new Date()
+const now = new Date().getFullYear()
 
 var skills = [
 
 	// Education
-	["School",		new Date("1980"), new Date("1994")],
-	["University",	new Date("1994"), new Date("1998")],
+	["School",		"1980", "1994"],
+	["University",	"1994", "1998"],
 
 	// Skills
-	["C++",			new Date("1999-01-01"), now],
-	["Embedded",	new Date("1998-01-01"), now],
-	["SC",			new Date("1998-01-01"), now],
-	["Vim",			new Date("1998-01-01"), now],
-	["VxWorks",		new Date("1998-01-01"), new Date("2009")],
-	["Unix",		new Date("1998-01-01"), new Date("2009")],
-	["Networking",	new Date("2003-01-01"), now],
-	["Regex",		new Date("2007-01-01"), now],
-	["Bash",		new Date("2009-01-01"), now],
-	["Linux	",		new Date("2009-01-01"), now],
-	["Subversion",	new Date("2012-01-01"), now],
-	["VMware",		new Date("2012-01-01"), now],
-	["STL",			new Date("2013-01-01"), now],
-	["C++11/14",	new Date("2015-01-01"), now],
-	["Agile",		new Date("2015-01-01"), now],
-	["Clang",		new Date("2015-01-01"), now],
-	["Iwyu",		new Date("2015-01-01"), now],
-	["JavaScript",	new Date("2016-01-01"), now],
-	["Git",			new Date("2015-09-01"), now],
-	["Lua",			new Date("2016-01-01"), now],
-	["Haskell",		new Date("2016-01-01"), now],
+	["C++",			"1999", now],
+	["Embedded",	"1998", now],
+	["SC",			"1998", now],
+	["Vim",			"1998", now],
+	["VxWorks",		"1998", "2009"],
+	["Unix",		"1998", "2009"],
+	["Networking",	"2003", now],
+	["Regex",		"2007", now],
+	["Bash",		"2009", now],
+	["Linux	",		"2009", now],
+	["Subversion",	"2012", now],
+	["VMware",		"2012", now],
+	["STL",			"2013", now],
+	["C++11/14",	"2015", now],
+	["Agile",		"2015", now],
+	["Clang",		"2015", now],
+	["Iwyu",		"2015", now],
+	["JavaScript",	"2016", now],
+	["Git",			"2015", now],
+	["Lua",			"2016", now],
+	["Haskell",		"2016", now],
 ]
 
 console.log("total skills", skills.length)
 
-for (var i = 0; i < skills.length; ++i)
-	console.log(
-		skills[i][0],
-		skills[i][1].getFullYear(),
-		skills[i][2].getFullYear())
+// Create range variable and initialise to out of range
+var range = function() {
+
+	this.min,
+	this.max
+}
+
+range.min = 3000
+range.max = 0
+
+// Parse to find min and max
+for (var i = 0; i < skills.length; ++i) {
+
+	const skill = skills[i][0]
+	const start = skills[i][1]
+	const end = skills[i][2]
+
+	skills[i][skills[i].length] = end - start
+	const duration = skills[i][3]
+
+	// Get min and max years
+	if (start < range.min)
+		range.min = start
+
+	if (end > range.max)
+		range.max = end
+}
+
+console.log("range", range.min, range.max)
+
+// Parse to print bars
+for (var i = 0; i < skills.length; ++i) {
+
+	const skill = skills[i][0]
+	const start = skills[i][1]
+	const end = skills[i][2]
+	const duration = skills[i][3]
+
+	var bar = ""
+	for (var j = 0; j <= duration; ++j)
+		bar += "-"
+
+	console.log(bar, duration, skill)
+}
