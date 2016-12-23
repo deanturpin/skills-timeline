@@ -2,39 +2,38 @@
 
 "use strict"
 
-const now = new Date().getFullYear()
+// The year today
+const now = parseInt(new Date().getFullYear())
 
 var skills = [
 
 	// Education
-	["School",		"1980", "1994"],
-	["University",	"1994", "1998"],
+	["School",		1980, 1994],
+	["University",	1994, 1998],
 
 	// Skills
-	["C++",			"1999", now],
-	["Embedded",	"1998", now],
-	["SC",			"1998", now],
-	["Vim",			"1998", now],
-	["VxWorks",		"1998", "2009"],
-	["Unix",		"1998", "2009"],
-	["Networking",	"2003", now],
-	["Regex",		"2007", now],
-	["Bash",		"2009", now],
-	["Linux	",		"2009", now],
-	["Subversion",	"2012", now],
-	["VMware",		"2012", now],
-	["STL",			"2013", now],
-	["C++11/14",	"2015", now],
-	["Agile",		"2015", now],
-	["Clang",		"2015", now],
-	["Iwyu",		"2015", now],
-	["JavaScript",	"2016", now],
-	["Git",			"2015", now],
-	["Lua",			"2016", now],
-	["Haskell",		"2016", now],
+	["C++",			1999, now],
+	["Embedded",	1998, now],
+	["SC",			1998, now],
+	["Vim",			1998, now],
+	["VxWorks",		1998, 2009],
+	["Unix",		1998, 2009],
+	["Networking",	2003, now],
+	["Regex",		2007, now],
+	["Bash",		2009, now],
+	["Linux	",		2009, now],
+	["Subversion",	2012, now],
+	["VMware",		2012, now],
+	["STL",			2013, now],
+	["C++11/14",	2015, now],
+	["Agile",		2015, now],
+	["Clang",		2015, now],
+	["Iwyu",		2015, now],
+	["JavaScript",	2016, now],
+	["Git",			2015, now],
+	["Lua",			2016, now],
+	["Haskell",		2016, now],
 ]
-
-console.log("total skills", skills.length)
 
 // Create range variable and initialise to out of range
 var range = function() {
