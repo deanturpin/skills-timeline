@@ -3,36 +3,37 @@
 "use strict"
 
 // The year today
-const now = parseInt(new Date().getFullYear())
+const pres = parseInt(new Date().getFullYear())
 
 var skills = [
 
 	// Education
-	["School",		1980, 1994],
+	["School",		1980, 1992],
+	["6th form",	1992, 1994],
 	["University",	1994, 1998],
 
 	// Skills
-	["C++",			1999, now],
-	["Embedded",	1998, now],
-	["SC",			1998, now],
-	["Vim",			1998, now],
+	["C++",			1999, pres],
+	["Embedded",	1998, pres],
+	["SC",			1998, pres],
+	["Vim",			1998, pres],
 	["VxWorks",		1998, 2009],
 	["Unix",		1998, 2009],
-	["Networking",	2003, now],
-	["Regex",		2007, now],
-	["Bash",		2009, now],
-	["Linux	",		2009, now],
-	["Subversion",	2012, now],
-	["VMware",		2012, now],
-	["STL",			2013, now],
-	["C++11/14",	2015, now],
-	["Agile",		2015, now],
-	["Clang",		2015, now],
-	["Iwyu",		2015, now],
-	["JavaScript",	2016, now],
-	["Git",			2015, now],
-	["Lua",			2016, now],
-	["Haskell",		2016, now],
+	["Networking",	2003, pres],
+	["Regex",		2007, pres],
+	["Bash",		2009, pres],
+	["Linux	",		2009, pres],
+	["Subversion",	2012, pres],
+	["VMware",		2012, pres],
+	["STL",			2013, pres],
+	["C++11/14",	2015, pres],
+	["Agile",		2015, pres],
+	["Clang",		2015, pres],
+	["Iwyu",		2015, pres],
+	["JavaScript",	2016, pres],
+	["Git",			2015, pres],
+	["Lua",			2016, pres],
+	["Haskell",		2016, pres],
 ]
 
 // Create range variable and initialise to out of range
@@ -74,6 +75,9 @@ for (var i = 0; i < skills.length; ++i) {
 	const duration = skills[i][3]
 
 	var bar = ""
+	for (var j = 0; j <= range.max - range.min - duration; ++j)
+		bar += " "
+
 	for (var j = 0; j <= duration; ++j)
 		bar += "-"
 
