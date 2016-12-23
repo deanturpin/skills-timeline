@@ -2,38 +2,34 @@
 
 "use strict"
 
-// The year today
-const pres = parseInt(new Date().getFullYear())
-
+// Skills and date range
 var skills = [
 
 	// Education
-	["School",		1980, 1992],
-	["6th form",	1992, 1994],
 	["University",	1994, 1998],
 
 	// Skills
-	["C++",			1999, pres],
-	["Embedded",	1998, pres],
-	["SC",			1998, pres],
-	["Vim",			1998, pres],
+	["C++",			1996, 2017],
+	["Embedded",	1998, 2017],
+	["SC",			1998, 2017],
+	["Vim",			1998, 2017],
 	["VxWorks",		1998, 2009],
 	["Unix",		1998, 2009],
-	["Networking",	2003, pres],
-	["Regex",		2007, pres],
-	["Bash",		2009, pres],
-	["Linux	",		2009, pres],
-	["Subversion",	2012, pres],
-	["VMware",		2012, pres],
-	["STL",			2013, pres],
-	["C++11/14",	2015, pres],
-	["Agile",		2015, pres],
-	["Clang",		2015, pres],
-	["Iwyu",		2015, pres],
-	["JavaScript",	2016, pres],
-	["Git",			2015, pres],
-	["Lua",			2016, pres],
-	["Haskell",		2016, pres],
+	["Networking",	2003, 2017],
+	["Regex",		2007, 2017],
+	["Bash",		2009, 2017],
+	["Linux	",		2009, 2017],
+	["Subversion",	2012, 2017],
+	["VMware",		2012, 2017],
+	["STL",			2013, 2017],
+	["C++11/14",	2015, 2017],
+	["Agile",		2015, 2017],
+	["Clang",		2015, 2017],
+	["Iwyu",		2015, 2016],
+	["JavaScript",	2016, 2017],
+	["Git",			2015, 2017],
+	["Lua",			2016, 2017],
+	["Haskell",		2016, 2017],
 ]
 
 // Create range variable and initialise to out of range
@@ -75,11 +71,14 @@ for (var i = 0; i < skills.length; ++i) {
 	const duration = skills[i][3]
 
 	var bar = ""
-	for (var j = 0; j <= range.max - range.min - duration; ++j)
+	for (var j = 0; j < start - range.min; ++j)
 		bar += " "
 
-	for (var j = 0; j <= duration; ++j)
-		bar += "-"
+	for (var j = 0; j < duration; ++j)
+		bar += "_"
+
+	for (var j = 0; j < range.max - end; ++j)
+		bar += " "
 
 	console.log(bar, duration, skill)
 }
