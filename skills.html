@@ -82,15 +82,12 @@
 				range.max = end
 		}
 
-		const scale = .5 * width / (range.max - range.min)
+		const scale = .75 * width / (range.max - range.min)
 		const padding = 10
 
 		// Add scale
-		// context.font = "bold"
-		context.fillText(range.min, 0, padding)
-
-		context.fillText(range.max,
-			padding + (range.max - range.min) * scale, padding)
+		for (var s = 0; s < range.max - range.min; s += 2)
+			context.fillText(range.min + s, s * scale, padding)
 
 		// Parse to print bars
 		for (var i = 0; i < skills.length; ++i) {
