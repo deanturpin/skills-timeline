@@ -82,6 +82,16 @@
 				range.max = end
 		}
 
+		const scale = .5 * width / (range.max - range.min)
+		const padding = 10
+
+		// Add scale
+		// context.font = "bold"
+		context.fillText(range.min, 0, padding)
+
+		context.fillText(range.max,
+			padding + (range.max - range.min) * scale, padding)
+
 		// Parse to print bars
 		for (var i = 0; i < skills.length; ++i) {
 
@@ -91,17 +101,20 @@
 			const duration = skills[i][2] - skills[i][1]
 
 			// Calculate end points
-			const scale = .5 * width / (range.max - range.min)
 			const x1 = scale * (start - range.min)
 			const x2 = x1 + duration * scale
-			const y = 10 + i * scale
+			const y = 2*padding + i*scale
 
 			// Render stroke
 			context.beginPath()
 			context.moveTo(x1, y)
 			context.lineTo(x2, y)
-			context.lineWidth = 2
+			context.lineWidth = 3
 			context.stroke()
+
+			// Add skill
+			context.fillText(skill,
+				padding + (range.max - range.min) * scale, y + padding)
 		}
 
 		// Periodically reload the page
