@@ -1,7 +1,1 @@
-To create a skills timeline:
-
-- Fork this repo
-- Edit [skills.js](skills.js) and commit
-- View [skills.html](skills.html)
-
-![](skills.png)
+See on [github.io](https://deanturpin.github.io/skills-timeline-generator/)
