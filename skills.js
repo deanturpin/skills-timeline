@@ -1,6 +1,5 @@
 "use strict"
 
-// Now
 const now = 2017
 
 // Skills and date range
