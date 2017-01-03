@@ -60,8 +60,9 @@
 		// Add year scale
 		for (var s = 0; s <= year.max - year.min; ++s) {
 
-			const y = year.min + s
-			context.fillText("\'" + y % 100, s * xScale, padding)
+			// Extract the lower two digits of the year
+			const y = "" + (year.min + s)
+			context.fillText("\'" + y.substring(2), s * xScale, padding)
 		}
 
 		// Parse to print bars

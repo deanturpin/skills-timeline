@@ -5,10 +5,8 @@ const now = 2017
 // Skills and date range
 var skills = [
 
-	// "Skill",		start, end
-
 	// Education and employment
-	["University",	1994, 1998],
+	["University",	1994, 1997],
 	["Company1",	1998, now],
 
 	// Skills
