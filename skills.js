@@ -3,7 +3,7 @@
 const now = 2017
 
 // Skills and date range
-var skills = [
+const skills = [
 
 	// Education and employment
 	["University",	1994, 1997],

@@ -24,7 +24,7 @@
 		const height = canvas.height = window.innerHeight
 
 		// Create range variable and initialise to out of range
-		var year = function() {
+		let year = function() {
 
 			this.min,
 			this.max
@@ -35,7 +35,7 @@
 		year.max = 0
 
 		// Parse to find min and max
-		for (var i = 0; i < skills.length; ++i) {
+		for (let i = 0; i < skills.length; ++i) {
 
 			const skill = skills[i][0]
 			const start = skills[i][1]
@@ -50,7 +50,7 @@
 		}
 
 		// Define scale function and initialise
-		var scale = function() {
+		let scale = function() {
 
 			this.x,
 			this.y
@@ -61,7 +61,7 @@
 		const padding = 10
 
 		// Add year scale
-		for (var s = 0; s <= year.max - year.min; ++s) {
+		for (let s = 0; s <= year.max - year.min; ++s) {
 
 			// Extract the lower two digits of the year
 			const y = "" + (year.min + s)
@@ -69,7 +69,7 @@
 		}
 
 		// Parse to print bars
-		for (var i = 0; i < skills.length; ++i) {
+		for (let i = 0; i < skills.length; ++i) {
 
 			const skill = skills[i][0]
 			const start = skills[i][1]
