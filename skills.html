@@ -23,10 +23,6 @@
 		const width = canvas.width = window.innerWidth
 		const height = canvas.height = window.innerHeight
 
-		// Offset from the origin
-		const x = width/2
-		const y = height/2
-
 		// Create range variable and initialise to out of range
 		var year = function() {
 
@@ -53,8 +49,15 @@
 				year.max = end
 		}
 
-		const xScale = .75 * width / (year.max - year.min)
-		const yScale = .9 * height / skills.length
+		// Define scale function and initialise
+		var scale = function() {
+
+			this.x,
+			this.y
+		}
+
+		scale.x = .75 * width / (year.max - year.min)
+		scale.y = .9 * height / skills.length
 		const padding = 10
 
 		// Add year scale
@@ -62,7 +65,7 @@
 
 			// Extract the lower two digits of the year
 			const y = "" + (year.min + s)
-			context.fillText("\'" + y.substring(2), s * xScale, padding)
+			context.fillText("\'" + y.substring(2), s * scale.x, padding)
 		}
 
 		// Parse to print bars
@@ -74,9 +77,9 @@
 			const duration = 1 + skills[i][2] - skills[i][1]
 
 			// Calculate end points
-			const x1 = xScale * (start - year.min)
-			const x2 = x1 + duration*xScale
-			const y = 2*padding + i*yScale
+			const x1 = scale.x * (start - year.min)
+			const x2 = x1 + duration*scale.x
+			const y = 2*padding + i*scale.y
 
 			// Render stroke
 			context.beginPath()
@@ -87,7 +90,7 @@
 
 			// Add skill
 			context.fillText(skill,
-				padding + (1 + year.max - year.min) * xScale, y + padding/2)
+				padding + (1 + year.max - year.min) * scale.x, y + padding/2)
 		}
 
 		// Periodically reload the page
