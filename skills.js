@@ -1,6 +1,6 @@
 "use strict"
 
-const now = 2017
+const now = 2018
 
 // Skills and date range
 var skills = [
@@ -31,7 +31,7 @@ var skills = [
 	["Iwyu",		2015, 2016],
 	["JavaScript",	2016, now],
 	["Git",			2015, now],
-	["Lua",			2016, now],
+	["Lua",			2016, 2017],
 	["Haskell",		2016, now],
 ]
 
