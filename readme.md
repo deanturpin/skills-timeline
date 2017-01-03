@@ -1,7 +1,6 @@
 To create a skills timeline:
 
-- Fork this repo
-- Edit [skills.js](skills.js) and commit
+- Edit [skills.js](skills.js) in a fork and commit
 - View [skills.html](skills.html)
 
 The HTML needs to be served rather than viewed on github. Either use
