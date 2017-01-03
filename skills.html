@@ -28,15 +28,15 @@
 		const y = height/2
 
 		// Create range variable and initialise to out of range
-		var range = function() {
+		var year = function() {
 
 			this.min,
 			this.max
 		}
 
-		// Initialise range
-		range.min = 3000
-		range.max = 0
+		// Initialise year range
+		year.min = 3000
+		year.max = 0
 
 		// Parse to find min and max
 		for (var i = 0; i < skills.length; ++i) {
@@ -46,20 +46,23 @@
 			const end = skills[i][2]
 
 			// Get min and max years
-			if (start < range.min)
-				range.min = start
+			if (start < year.min)
+				year.min = start
 
-			if (end > range.max)
-				range.max = end
+			if (end > year.max)
+				year.max = end
 		}
 
-		const xScale = .75 * width / (range.max - range.min)
+		const xScale = .75 * width / (year.max - year.min)
 		const yScale = .9 * height / skills.length
 		const padding = 10
 
-		// Add scale
-		for (var s = 0; s < range.max - range.min; s += 2)
-			context.fillText(range.min + s, s * xScale, padding)
+		// Add year scale
+		for (var s = 0; s <= year.max - year.min; ++s) {
+
+			const y = year.min + s
+			context.fillText("\'" + y % 100, s * xScale, padding)
+		}
 
 		// Parse to print bars
 		for (var i = 0; i < skills.length; ++i) {
@@ -67,10 +70,10 @@
 			const skill = skills[i][0]
 			const start = skills[i][1]
 			const end = skills[i][2]
-			const duration = skills[i][2] - skills[i][1]
+			const duration = 1 + skills[i][2] - skills[i][1]
 
 			// Calculate end points
-			const x1 = xScale * (start - range.min)
+			const x1 = xScale * (start - year.min)
 			const x2 = x1 + duration*xScale
 			const y = 2*padding + i*yScale
 
@@ -83,7 +86,7 @@
 
 			// Add skill
 			context.fillText(skill,
-				padding + (range.max - range.min) * xScale, y + padding/2)
+				padding + (1 + year.max - year.min) * xScale, y + padding/2)
 		}
 
 		// Periodically reload the page
