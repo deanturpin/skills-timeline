@@ -56,10 +56,9 @@ const skills = [
 		const context = canvas.getContext("2d")
 
 		// Set canvas size
-		const width = canvas.width = window.innerWidth
-		const height = canvas.height = window.innerHeight
+		canvas.width = window.innerWidth
+		canvas.height = window.innerHeight
 
-		
 		// Create range variable and initialise to out of range
 		function year() {
 
@@ -72,7 +71,7 @@ const skills = [
 		year.max = 0
 
 		// Parse to find min and max
-		for (var i = 0; i < skills.length; ++i) {
+		for (let i = 0; i < skills.length; ++i) {
 		
 			// Get min and max years
 			if (skills[i][1] < year.min)
@@ -89,12 +88,12 @@ const skills = [
 			this.y
 		}
 
-		scale.x = .75 * width / (year.max - year.min)
-		scale.y = .9 * height / skills.length
+		scale.x = .75 * canvas.width / (year.max - year.min)
+		scale.y = .9 * canvas.height / skills.length
 		const padding = 10
 
 		// Add year scale
-		for (var s = 0; s <= year.max - year.min; ++s) {
+		for (let s = 0; s <= year.max - year.min; ++s) {
 
 			// Extract the lower two digits of the year
 			const yr = "" + (year.min + s)
@@ -102,7 +101,7 @@ const skills = [
 		}
 
 		// Parse to print bars
-		for (var i = 0; i < skills.length; ++i) {
+		for (let i = 0; i < skills.length; ++i) {
 
 			const skill = skills[i][0]
 			const start = skills[i][1]
@@ -126,7 +125,7 @@ const skills = [
 				padding + (1 + year.max - year.min) * scale.x, y + padding/2)
 		}
 
-		// Periodically reload the page
+		// Periodically reload the page if there's a token in the URL
 		setInterval(function() {
 
 			if (window.location.href.split("?").pop() === "reload")
