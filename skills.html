@@ -1,4 +1,6 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8"/>
 
 <script type="text/javascript" src="skills.js"></script>
 
@@ -23,8 +25,9 @@
 		const width = canvas.width = window.innerWidth
 		const height = canvas.height = window.innerHeight
 
+		
 		// Create range variable and initialise to out of range
-		let year = function() {
+		function year() {
 
 			this.min,
 			this.max
@@ -35,22 +38,18 @@
 		year.max = 0
 
 		// Parse to find min and max
-		for (let i = 0; i < skills.length; ++i) {
-
-			const skill = skills[i][0]
-			const start = skills[i][1]
-			const end = skills[i][2]
-
+		for (var i = 0; i < skills.length; ++i) {
+		
 			// Get min and max years
-			if (start < year.min)
-				year.min = start
+			if (skills[i][1] < year.min)
+				year.min = skills[i][1]
 
-			if (end > year.max)
-				year.max = end
+			if (skills[i][2] > year.max)
+				year.max = skills[i][2]
 		}
 
 		// Define scale function and initialise
-		let scale = function() {
+		function scale() {
 
 			this.x,
 			this.y
@@ -61,15 +60,15 @@
 		const padding = 10
 
 		// Add year scale
-		for (let s = 0; s <= year.max - year.min; ++s) {
+		for (var s = 0; s <= year.max - year.min; ++s) {
 
 			// Extract the lower two digits of the year
-			const y = "" + (year.min + s)
-			context.fillText("\'" + y.substring(2), s * scale.x, padding)
+			const yr = "" + (year.min + s)
+			context.fillText("\'" + yr.substring(2), s * scale.x, padding)
 		}
 
 		// Parse to print bars
-		for (let i = 0; i < skills.length; ++i) {
+		for (var i = 0; i < skills.length; ++i) {
 
 			const skill = skills[i][0]
 			const start = skills[i][1]
