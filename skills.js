@@ -1,15 +1,11 @@
 "use strict"
 
+// Current year
 const now = 2017
 
 // Skills and date range
 const skills = [
 
-	// Education and employment
-	["University",	1994, 1997],
-	["Company1",	1998, now],
-
-	// Skills
 	["C++",			1996, now],
 	["Embedded",	1998, now],
 	["SC",			1998, now],
