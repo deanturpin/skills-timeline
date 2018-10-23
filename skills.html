@@ -23,7 +23,6 @@
 		["regex",		2007, now],
 		["Doxygen",		2009, 2010],
 		["Mediawiki",		2009, now],
-		["Confluence",		2018, now],
 		["bash",		2009, now],
 		["Linux	",		2009, now],
 		["Subversion",  	2012, now],
@@ -32,13 +31,13 @@
 		["C++11/14",    	2015, now],
 		["Agile",		2015, now],
 		["iwyu",		2015, 2017],
-		["JavaScript",  	2016, 2017],
 		["git",			2015, now],
-		["Lua",			2016, 2016],
-		["Haskell",		2017, 2017],
-		["Python",		2018, now],
+		["JavaScript",  	2016, 2017],
+		["Python3",		2018, now],
 		["blockchain",		2018, now],
 		["Travis CI",		2018, now],
+		["Confluence",		2018, now],
+		["C++17",		2018, now],
 	];
 </script>
 
@@ -84,7 +83,7 @@
 		const padding = 10;
 
 		// Add year scale
-		for (let s = 0; s <= year_max - year_min; ++s) {
+		for (let s = 0; s <= year_max - year_min + 1; ++s) {
 
 			// Extract the lower two digits of the year
 			const yr = "" + (year_min + s);
